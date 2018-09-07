@@ -2,9 +2,8 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 
-app.use(bodyParser.urlendcoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-
 
 
 app.get("/", function(req, res){
@@ -28,6 +27,10 @@ app.post("/campgrounds", function(req, res){
 	//redirect back to campgrounds page
 });
 
+
+app.get("/campgrounds/new", function(req, res){
+	res.render("new.ejs");
+})
 
 var PORT = process.env.PORT || 8080;
 
