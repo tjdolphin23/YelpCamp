@@ -1,6 +1,8 @@
 var express = require("express");
 var app = express();
+var bodyParser = require("body-parser");
 
+app.use(bodyParser.urlendcoded({extended: true}));
 app.set("view engine", "ejs");
 
 
@@ -19,6 +21,12 @@ app.get("/campgrounds", function(req,res){
 	res.render("campgrounds", {campgrounds: campgrounds});
 });
 
+
+app.post("/campgrounds", function(req, res){
+	//get date form & add to list
+
+	//redirect back to campgrounds page
+});
 
 
 var PORT = process.env.PORT || 8080;
