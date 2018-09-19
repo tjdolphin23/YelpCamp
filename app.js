@@ -5,25 +5,11 @@ var mongoose = require("mongoose");
 var Campground = require("./models/campground");
 var seedDB = require("./seeds");
 
+
 seedDB();
 mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-
-
-
-// Campground.create({
-// 	name: "Indian Hill",
-// 	image: "https://farm9.staticflickr.com/8010/7436786986_9972800b37.jpg",
-// 	description: "A famous hill which was accient Indian burial ground. It's located in South Dakato near Mt. Rushmore"
-// }, function(err, campground) {
-// 	if(err) {
-// 		console.log(err);
-// 	} else {
-// 		console.log("New campground created!!!");
-// 		console.log(campground);
-// 	}
-// });
 
 
 
@@ -69,10 +55,11 @@ app.get("/campgrounds/new", function(req, res){
 // show more info about 1 campground
 app.get("/campgrounds/:id", function(req, res){
 	//find campground with ID
-	Campground.findById(req.params.id, function(err, foundCampground){
+	Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
 		if(err) {
 			console.log(err);
 		} else {
+			console.log(foundCampground);
 			res.render("show", {campground: foundCampground});
 		}
 	});
