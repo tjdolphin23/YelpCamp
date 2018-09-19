@@ -21,7 +21,7 @@ app.get("/campgrounds", function(req,res){
 		if(err) {
 			console.log(err);
 		} else {
-			res.render("index", {campgrounds: allCampground});
+			res.render("campgrounds/index", {campgrounds: allCampground});
 		}
 	})
 });
@@ -46,7 +46,7 @@ app.post("/campgrounds", function(req, res){
 
 
 app.get("/campgrounds/new", function(req, res){
-	res.render("new.ejs");
+	res.render("campgrounds/new");
 });
 
 // show more info about 1 campground
@@ -57,10 +57,19 @@ app.get("/campgrounds/:id", function(req, res){
 			console.log(err);
 		} else {
 			console.log(foundCampground);
-			res.render("show", {campground: foundCampground});
+			res.render("campgrounds/show", {campground: foundCampground});
 		}
 	});
 });
+
+//========================
+// COMMENTS ROUTES
+//========================
+app.get("/campgrounds/:id/comments/new", function(req, res){
+ 	res.render("comments/new");
+});
+
+
 
 //local port
 var PORT = process.env.PORT || 8080;
