@@ -149,6 +149,15 @@ app.get("/login", function(req, res){
   res.send("login page");
 });
 
+// HANDLE LOGIN LOGIC
+app.post("/login", passport.authenticate("local",
+  {
+    successRedirect: "/campgrounds",
+    failureRedirect: "/login"
+  }), function(req, res) {
+});
+
+
 //local port
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
