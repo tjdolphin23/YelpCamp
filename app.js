@@ -158,6 +158,13 @@ app.post("/login", passport.authenticate("local",
 });
 
 
+//LOGOUT ROUTE
+app.get("/logout", function(req, res){
+  req.logout();
+  res.redirect("/campgrounds");
+});
+
+
 //local port
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
