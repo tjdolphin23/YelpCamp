@@ -144,6 +144,10 @@ app.post("/register", function(req, res){
   });
 });
 
+// SHOW LOGIN FORM
+app.get("/login", function(req, res){
+  res.send("login page");
+});
 
 //local port
 var PORT = process.env.PORT || 8080;
