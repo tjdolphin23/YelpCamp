@@ -16,6 +16,20 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 seedDB();
 
+
+//PASSPORT CONFIGURATION
+app.use(require('express-session')({ 
+    secret: 'duke is my dog', 
+    resave: false, 
+    saveUninitialized: false }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//LANDING PAGE
 app.get("/", function(req, res){
 	res.render("landing");
 });
