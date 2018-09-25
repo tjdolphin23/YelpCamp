@@ -1,7 +1,4 @@
 
-//========================
-// AUTH ROUTES
-//========================
 var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campground");
@@ -10,7 +7,7 @@ var User = require("../models/user");
 var passport = require("passport");
 
 
-//show register form
+//SIGN UP FORM
 router.get("/register", function(req, res){
   res.render("register")
 });
@@ -49,7 +46,7 @@ router.get("/logout", function(req, res){
   res.redirect("/campgrounds");
 });
 
-
+//MIDDLEWARE
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
     return next();
