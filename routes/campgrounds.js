@@ -76,6 +76,11 @@ router.put("/:id", function(req, res){
 	});
 });
 
+//DESTROY CAMPGROUND ROUTE
+router.delete("/:id", function(req, res){
+	res.send("You are trying to delete");
+});
+
 //MIDDLEWARE
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
