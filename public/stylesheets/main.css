@@ -14,3 +14,7 @@
 	height: 175px;
 	width: 100%;
 }
+
+#delete-form {
+	display: inline;
+}
