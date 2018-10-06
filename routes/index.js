@@ -43,6 +43,7 @@ router.post("/login", passport.authenticate("local",
 //LOGOUT ROUTE
 router.get("/logout", function(req, res){
   req.logout();
+  res.flash("error", "You are logged out!");
   res.redirect("/campgrounds");
 });
 
@@ -50,3 +51,28 @@ router.get("/logout", function(req, res){
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
