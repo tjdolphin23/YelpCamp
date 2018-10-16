@@ -12,6 +12,7 @@ var express         = require("express"),
     seedDB          = require("./seeds")
 
 var commentRoutes     = require("./routes/comments"),
+    reviewRoutes      = require("./routes/reviews"),
     campgroundRoutes  = require("./routes/campgrounds"),
     indexRoutes       = require("./routes/index")
     
@@ -58,6 +59,7 @@ app.get("/", function(req, res){
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 
 //========================
