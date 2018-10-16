@@ -1,4 +1,3 @@
-
 var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campground");
@@ -57,14 +56,6 @@ router.get("/logout", function(req, res){
 
 
 module.exports = router;
-
-
-
-
-
-
-
-
 
 
 

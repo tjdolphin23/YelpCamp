@@ -11,10 +11,10 @@ var express         = require("express"),
     User            = require("./models/user"),
     seedDB          = require("./seeds")
 
-var commentRoutes     = require("./routes/comments"),
-    reviewRoutes      = require("./routes/reviews"),
-    campgroundRoutes  = require("./routes/campgrounds"),
-    indexRoutes       = require("./routes/index")
+//requiring routes
+var commentRoutes    = require("./routes/comments"),
+    campgroundRoutes = require("./routes/campgrounds"),
+    indexRoutes      = require("./routes/index")
     
 
 //mongoose.connect("mongodb://localhost/yelp_camp");
@@ -48,10 +48,9 @@ app.use(function(req, res, next){
 });
 
 
-
 //LANDING PAGE
 app.get("/", function(req, res){
-	res.render("landing");
+  res.render("landing");
 });
 
 
@@ -59,7 +58,6 @@ app.get("/", function(req, res){
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
-app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 
 //========================
