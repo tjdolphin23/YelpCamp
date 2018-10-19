@@ -1,3 +1,5 @@
+
+
 var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
@@ -15,6 +17,7 @@ var express         = require("express"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
+    reviewRoutes     = require("./routes/reviews");
     
 
 //mongoose.connect("mongodb://localhost/yelp_camp");
@@ -48,6 +51,7 @@ app.use(function(req, res, next){
 });
 
 
+
 //LANDING PAGE
 app.get("/", function(req, res){
   res.render("landing");
@@ -58,6 +62,7 @@ app.get("/", function(req, res){
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/campgrounds/:id/reivews", reviewRoutes);
 
 
 //========================
@@ -67,6 +72,30 @@ var PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
