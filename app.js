@@ -1,5 +1,3 @@
-
-
 var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
@@ -62,7 +60,7 @@ app.get("/", function(req, res){
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
-app.use("/campgrounds/:id/reivews", reviewRoutes);
+app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 
 //========================

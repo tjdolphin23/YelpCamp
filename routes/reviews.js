@@ -9,7 +9,8 @@ var middleware = require("../middleware");
 router.get("/", function (req, res) {
     Campground.findById(req.params.id).populate({
         path: "reviews",
-        options: {sort: {createdAt: -1}} // sorting the populated reviews array to show the latest first
+        options: {sort: {createdAt: -1}} 
+// sorting the populated reviews array to show the latest first
     }).exec(function (err, campground) {
         if (err || !campground) {
             req.flash("error", err.message);
